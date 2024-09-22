@@ -1,21 +1,17 @@
-package com.example.demo.entrypoint.validation;
+package com.example.demo.application.validation;
 
-import com.example.demo.entrypoint.dto.CadastroRequest;
-import com.example.demo.entrypoint.dto.TipoPessoaEnum;
-import com.example.demo.exception.InvalidParametersException;
-import jakarta.validation.ConstraintTarget;
+import com.example.demo.infra.entrypoint.dto.CadastroRequest;
+import com.example.demo.infra.entrypoint.dto.TipoPessoaEnum;
+import com.example.demo.core.exception.InvalidParametersException;
 import jakarta.validation.ConstraintViolation;
 
 import jakarta.validation.Validator;
 import org.apache.coyote.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 import java.util.Set;
 
 @Component

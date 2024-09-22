@@ -1,4 +1,4 @@
-package com.example.demo.entrypoint.annotations;
+package com.example.demo.application.annotations;
 
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;

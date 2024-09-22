@@ -1,20 +1,17 @@
-package com.example.demo.interceptor;
+package com.example.demo.application.interceptor;
 
-import com.example.demo.exception.InvalidParametersException;
-import com.example.demo.interceptor.dto.ApiErrorResponse;
-import com.example.demo.interceptor.dto.FieldErrorResponse;
+import com.example.demo.core.exception.InvalidParametersException;
+import com.example.demo.application.interceptor.dto.ApiErrorResponse;
+import com.example.demo.application.interceptor.dto.FieldErrorResponse;
 import jakarta.servlet.http.HttpServletRequest;
-import org.apache.coyote.BadRequestException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Stream;
 
 @RestControllerAdvice
 public class GlobalInterceptor {

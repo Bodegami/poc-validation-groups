@@ -1,9 +1,7 @@
-package com.example.demo.entrypoint.dto;
+package com.example.demo.infra.entrypoint.dto;
 
-import com.example.demo.entrypoint.annotations.EnumValidator;
-import com.example.demo.entrypoint.validation.CadastroCompletoGroup;
-import com.example.demo.entrypoint.validation.CadastroSimplesGroup;
-import jakarta.validation.constraints.NotNull;
+import com.example.demo.application.annotations.EnumValidator;
+import com.example.demo.application.validation.CadastroCompletoGroup;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

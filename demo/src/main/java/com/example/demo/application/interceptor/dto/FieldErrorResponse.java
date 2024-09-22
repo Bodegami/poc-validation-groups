@@ -1,4 +1,4 @@
-package com.example.demo.interceptor.dto;
+package com.example.demo.application.interceptor.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,18 +1,13 @@
-package com.example.demo.entrypoint.dto;
+package com.example.demo.infra.entrypoint.dto;
 
-import com.example.demo.entrypoint.annotations.EnumValidator;
-import com.example.demo.entrypoint.validation.CadastroCompletoGroup;
-import com.example.demo.entrypoint.validation.CadastroSimplesGroup;
-import com.fasterxml.jackson.annotation.JsonEnumDefaultValue;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.cfg.CoercionConfig;
+import com.example.demo.application.annotations.EnumValidator;
+import com.example.demo.application.validation.CadastroCompletoGroup;
+import com.example.demo.application.validation.CadastroSimplesGroup;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.validator.constraints.Length;
-import org.springframework.format.annotation.NumberFormat;
 
 import java.math.BigDecimal;
 

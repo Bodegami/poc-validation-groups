@@ -1,4 +1,4 @@
-package com.example.demo.interceptor;
+package com.example.demo.application.interceptor;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

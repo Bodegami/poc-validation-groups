@@ -1,12 +1,11 @@
-package com.example.demo.entrypoint;
+package com.example.demo.infra.entrypoint;
 
-import com.example.demo.entrypoint.dto.CadastroRequest;
-import com.example.demo.entrypoint.validation.CommonValidator;
+import com.example.demo.infra.entrypoint.dto.CadastroRequest;
+import com.example.demo.application.validation.CommonValidator;
 import jakarta.validation.Valid;
 import org.apache.coyote.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

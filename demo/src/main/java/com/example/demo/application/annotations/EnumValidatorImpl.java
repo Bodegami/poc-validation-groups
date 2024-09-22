@@ -1,8 +1,7 @@
-package com.example.demo.entrypoint.annotations;
+package com.example.demo.application.annotations;
 
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

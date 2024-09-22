@@ -1,4 +1,4 @@
-package com.example.demo.entrypoint.dto;
+package com.example.demo.infra.entrypoint.dto;
 
 public enum TipoEstadoEnum {
 
