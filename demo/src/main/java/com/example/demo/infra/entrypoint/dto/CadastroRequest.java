@@ -1,6 +1,8 @@
 package com.example.demo.infra.entrypoint.dto;
 
 import com.example.demo.application.annotations.EnumValidator;
+import com.example.demo.application.annotations.PayloadValidator;
+import com.example.demo.application.annotations.PayloadValidatorV2;
 import com.example.demo.application.validation.CadastroCompletoGroup;
 import com.example.demo.application.validation.CadastroSimplesGroup;
 import jakarta.validation.Valid;
@@ -14,6 +16,8 @@ import java.math.BigDecimal;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+//@PayloadValidator
+//@PayloadValidatorV2
 public class CadastroRequest {
 
     @NotBlank(message = "Deu ruim", groups = {CadastroSimplesGroup.class})

@@ -1,28 +1,29 @@
-package com.example.demo.application.validation;
+package com.example.demo.application.annotations;
 
+import com.example.demo.application.validation.CadastroCompletoGroup;
+import com.example.demo.application.validation.CadastroSimplesGroup;
+import com.example.demo.core.exception.InvalidParametersException;
 import com.example.demo.infra.entrypoint.dto.CadastroRequest;
 import com.example.demo.infra.entrypoint.dto.TipoPessoaEnum;
-import com.example.demo.core.exception.InvalidParametersException;
+import jakarta.validation.ConstraintValidator;
+import jakarta.validation.ConstraintValidatorContext;
 import jakarta.validation.ConstraintViolation;
-
 import jakarta.validation.Validator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 @Component
-public class CommonValidator {
-
-    private static final String INVALID_TIPO_PESSOA= "O atributo tipoPessoa inválido!";
+public class PayloadValidatorImpl implements ConstraintValidator<PayloadValidator, CadastroRequest> {
 
     @Autowired
     private Validator validator;
 
-    public void validate(CadastroRequest request) {
+    private static final String INVALID_TIPO_PESSOA= "O atributo tipoPessoa inválido!";
 
+    @Override
+    public boolean isValid(CadastroRequest request, ConstraintValidatorContext context) {
         Map<String, Object> mapa = new HashMap<>();
         Class<?> grupoDeValidacao;
 
@@ -41,6 +42,7 @@ public class CommonValidator {
             throw new InvalidParametersException("Invalid parameters", mapa);
         }
 
+        return true;
     }
 
     private static void isTipoPessoaPresent(CadastroRequest request, Map<String, Object> mapa) {
@@ -57,4 +59,5 @@ public class CommonValidator {
     private boolean isPj(CadastroRequest request) {
         return TipoPessoaEnum.FISICA.isPJ(request.getTipoPessoa());
     }
+
 }
