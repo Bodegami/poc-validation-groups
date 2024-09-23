@@ -16,7 +16,7 @@ import java.math.BigDecimal;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-//@PayloadValidator
+@PayloadValidator
 //@PayloadValidatorV2
 public class CadastroRequest {
 

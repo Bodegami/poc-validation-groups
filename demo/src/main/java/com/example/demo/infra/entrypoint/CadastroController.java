@@ -21,7 +21,7 @@ public class CadastroController {
     @PostMapping
     public ResponseEntity<String> cadastrar(@RequestBody @Valid CadastroRequest request) throws BadRequestException {
 
-        validatePayload(request);
+        //validatePayload(request);
 
         return ResponseEntity.ok(request.toString());
     }

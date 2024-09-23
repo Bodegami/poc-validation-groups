@@ -21,19 +21,17 @@ public class PayloadValidatorImpl implements ConstraintValidator<PayloadValidato
     private Validator validator;
 
     private static final String INVALID_TIPO_PESSOA= "O atributo tipoPessoa inválido!";
+    private static final Class<CadastroSimplesGroup> GRUPO_PF = CadastroSimplesGroup.class;
+    private static final Class<CadastroCompletoGroup> GRUPO_PJ = CadastroCompletoGroup.class;
 
     @Override
     public boolean isValid(CadastroRequest request, ConstraintValidatorContext context) {
+        isTipoPessoaPresent(request);
+
         Map<String, Object> mapa = new HashMap<>();
         Class<?> grupoDeValidacao;
 
-        isTipoPessoaPresent(request, mapa);
-
-        if (isPj(request)) {
-            grupoDeValidacao = CadastroCompletoGroup.class;
-        } else {
-            grupoDeValidacao = CadastroSimplesGroup.class;
-        }
+        grupoDeValidacao = isPj(request) ? GRUPO_PJ : GRUPO_PF;
 
         Set<ConstraintViolation<CadastroRequest>> violations = validator.validate(request, grupoDeValidacao);
 
@@ -45,14 +43,12 @@ public class PayloadValidatorImpl implements ConstraintValidator<PayloadValidato
         return true;
     }
 
-    private static void isTipoPessoaPresent(CadastroRequest request, Map<String, Object> mapa) {
-        boolean isNull = request.getTipoPessoa() == null;
-        boolean isEmpty = request.getTipoPessoa().isEmpty();
-        boolean isValid = TipoPessoaEnum.isValid(request.getTipoPessoa());
+    private static void isTipoPessoaPresent(CadastroRequest request) {
 
-        if (isNull || isEmpty || !isValid) {
-            mapa.put("tipoPessoa", INVALID_TIPO_PESSOA);
-            throw new InvalidParametersException(INVALID_TIPO_PESSOA, mapa);
+        if (request.getTipoPessoa() == null || request.getTipoPessoa().isBlank()
+                || !TipoPessoaEnum.isValid(request.getTipoPessoa())) {
+
+            throw new InvalidParametersException(INVALID_TIPO_PESSOA, Map.of("tipoPessoa", INVALID_TIPO_PESSOA));
         }
     }
 
